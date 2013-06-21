@@ -28,7 +28,7 @@ class AccessGuardian {
 		$user->phone = trim($phone);
 
 		$people[$id] = $user;
-		// asort($people);
+		uasort($people, ["AccessGuardian", "userCompare"]);
 		$this->writeFile($people);
 
 		return $id;
@@ -58,6 +58,10 @@ class AccessGuardian {
 
 	private function writeFile(array $people) {
 		file_put_contents($this->accessFile, serialize($people));
+	}
+
+	static function userCompare($a, $b) {
+		return strcmp($a->name, $b->name);
 	}
 
 }
