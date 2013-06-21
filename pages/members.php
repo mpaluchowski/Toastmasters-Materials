@@ -27,6 +27,15 @@ include APPLICATION_PATH . '/pages/header.inc.php';
 	</tbody>
 </table>
 
+<?php if (is_admin()): ?>
+<form id="user-add-form" action=".">
+	<input type="text" name="name">
+	<input type="text" name="email">
+	<input type="text" name="phone">
+	<button type="submit">Add</button>
+</form>
+<?php endif; ?>
+
 <?php
 include APPLICATION_PATH . '/pages/footer.inc.php';
 ?>

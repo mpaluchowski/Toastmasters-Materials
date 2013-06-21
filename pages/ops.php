@@ -9,5 +9,12 @@ switch ($_POST['op']) {
 	case 'remove':
 		$guardian->removeUser($_POST['id']);
 		break;
+	case 'add':
+		$guardian->addUser(
+			$_POST['name'],
+			$_POST['email'],
+			$_POST['phone']
+			);
+		break;
 }
 ?>
