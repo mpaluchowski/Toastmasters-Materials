@@ -13,7 +13,8 @@ switch ($_POST['op']) {
 		$guardian->addUser(
 			$_POST['name'],
 			$_POST['email'],
-			$_POST['phone']
+			$_POST['phone'],
+			$_POST['admin'] == 'on'
 			);
 		break;
 }

@@ -219,6 +219,10 @@ a[href$='.doc'] {
 		padding: .4em .6em;
 	}
 
+	tr.admin td:first-child {
+		font-weight: bold;
+	}
+
 	td {
 		font-size: 1.3em;
 		padding: .4em .6em;

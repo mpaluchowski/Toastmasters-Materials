@@ -14,7 +14,7 @@ class AccessGuardian {
 			: null;
 	}
 
-	public function addUser($name, $email, $phone) {
+	public function addUser($name, $email, $phone, $admin = false) {
 		$id = uniqid("", true);
 
 		$people = $this->readFile();
@@ -26,6 +26,7 @@ class AccessGuardian {
 		$user->name = trim($name);
 		$user->email = trim($email);
 		$user->phone = trim($phone);
+		$user->admin = $admin;
 
 		$people[$id] = $user;
 		uasort($people, ["AccessGuardian", "userCompare"]);

@@ -15,7 +15,7 @@ include APPLICATION_PATH . '/pages/header.inc.php';
 	</thead>
 	<tbody>
 <?php foreach ($guardian->getList() as $id => $user): ?>
-		<tr data-id="<?php echo $id ?>">
+		<tr data-id="<?php echo $id ?>" <?php if (!empty($user->admin) && $user->admin) echo 'class="admin"' ?>>
 			<td><?php echo $user->name ?></td>
 			<td><a href="mailto:<?php echo $user->email ?>"><?php echo $user->email ?></a></td>
 			<td><a href="callto:<?php echo $user->phone ?>"><?php echo $user->phone ?></a></td>
@@ -41,6 +41,10 @@ include APPLICATION_PATH . '/pages/header.inc.php';
 		<li>
 			<label for="user-phone">Phone</label>
 			<input type="text" id="user-phone" name="phone">
+		</li>
+		<li>
+			<label for="user-admin">Admin</label>
+			<input type="checkbox" id="user-admin" name="admin">
 		</li>
 		<li>
 			<button type="submit">Add</button>
