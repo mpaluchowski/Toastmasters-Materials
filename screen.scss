@@ -248,3 +248,24 @@ a[href$='.doc'] {
 		clear: right;
 	}
 }
+
+#user-new-email {
+	margin: 3em;
+
+	h2 {
+		background: $tm-yellow;
+		font-size: 1.3em;
+		font-weight: bold;
+		padding: .4em .6em;
+	}
+
+	p {
+		font-size: 1.3em;
+		line-height: 150%;
+		margin: .6em 0;
+
+		strong {
+			font-weight: bold;
+		}
+	}
+}

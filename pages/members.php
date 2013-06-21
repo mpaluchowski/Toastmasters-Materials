@@ -53,6 +53,22 @@ include APPLICATION_PATH . '/pages/header.inc.php';
 		</li>
 	</ul>
 </form>
+
+<section id="user-new-email">
+	<h2>Email:</h2>
+
+	<p>Repository of digital Toastmasters materials</p>
+
+	<p>Hello,<br>
+	<br>
+	we have a repository of Toastmasters <strong>digital content</strong> - manuals, flyers, forms - both the official ones, available (but often hard to find) at www.toastmasters.org, but also the files produced by ours and other clubs. It also provides <strong>contact details</strong> of your fellow club members.<br>
+	<br>
+	Your personal link to access the repository is:<br>
+	<br>
+	[LINK HERE]<br>
+	<br>
+	Please do NOT SHARE this link with other members. Everybody receives a unique link and all active members of the club will have access to the repository. If another member asks you for the link, please send him or her over to me to get their individual one.</p>
+</section>
 <?php endif; ?>
 
 <?php
