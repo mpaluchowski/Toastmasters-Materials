@@ -29,10 +29,23 @@ include APPLICATION_PATH . '/pages/header.inc.php';
 
 <?php if (is_admin()): ?>
 <form id="user-add-form" action=".">
-	<input type="text" name="name">
-	<input type="text" name="email">
-	<input type="text" name="phone">
-	<button type="submit">Add</button>
+	<ul>
+		<li>
+			<label for="user-name">Name</label>
+			<input type="text" id="user-name" name="name">
+		</li>
+		<li>
+			<label for="user-email">Email</label>
+			<input type="text" id="user-email" name="email">
+		</li>
+		<li>
+			<label for="user-phone">Phone</label>
+			<input type="text" id="user-phone" name="phone">
+		</li>
+		<li>
+			<button type="submit">Add</button>
+		</li>
+	</ul>
 </form>
 <?php endif; ?>
 

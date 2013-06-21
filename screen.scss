@@ -229,3 +229,17 @@ a[href$='.doc'] {
 		text-decoration: none;
 	}
 }
+
+#user-add-form {
+	margin: 3em;
+
+	label {
+		display: inline-block;
+		font-size: 1.2em;
+		width: 6em;
+	}
+
+	input {
+		clear: right;
+	}
+}
