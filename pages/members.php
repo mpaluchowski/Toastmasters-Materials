@@ -15,7 +15,7 @@ include APPLICATION_PATH . '/pages/header.inc.php';
 	</thead>
 	<tbody>
 <?php foreach ($guardian->getList() as $id => $user): ?>
-		<tr data-id="<?php echo $id ?>" <?php if (is_admin() && !empty($user->admin) && $user->admin) echo 'class="admin"' ?>>
+		<tr <?php if (is_admin()) echo 'data-id="<?php echo $id ?>"' ?> <?php if (is_admin() && !empty($user->admin) && $user->admin) echo 'class="admin"' ?>>
 			<td><?php if (is_admin()) echo '<a href="http://' . $_SERVER['HTTP_HOST'] . '/' . $id . '">' ?>
 				<?php echo $user->name ?>
 			<?php if (is_admin()) echo '</a>' ?></td>
