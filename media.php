@@ -1,13 +1,15 @@
 <?php
+defined('APPLICATION_PATH')
+    || define('APPLICATION_PATH', realpath(dirname(__FILE__)));
 
 require_once './AccessGuardian.php';
 
 $guardian = new AccessGuardian();
 
-if (null == $guardian->getUser($_GET['checkId'])
+if (null == $guardian->getUser($_GET['checkId']))
 	die;
 
-$file = './data/' . ltrim($_GET['mediaPath'], '.');
+$file = APPLICATION_PATH . '/data/' . ltrim($_GET['mediaPath'], '.');
 
 header("Content-length: " . filesize($file));
 header("Content-type: " . mime_content_type($file));
