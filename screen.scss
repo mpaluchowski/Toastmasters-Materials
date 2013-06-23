@@ -66,26 +66,18 @@ table {
 		margin-right: 25px;
 	}
 
-	#header-info {
+	h1 {
+		color: #FFF;
+		font: {
+			weight: bold;
+			size: 3em;
+		}
+		margin: {
+			bottom: 6px;
+		}
 		padding-top: 25px;
-
-		h1 {
-			color: #FFF;
-			font: {
-				weight: bold;
-				size: 3em;
-			}
-			margin: {
-				bottom: 6px;
-			}
-		}
-
-		p {
-			color: #FFF;
-			font-size: 1.3em;
-			line-height: 150%;
-		}
 	}
+
 }
 
 #main-menu {
@@ -218,8 +210,23 @@ a[href$='.doc'] {
 		padding: .4em .6em;
 	}
 
-	tr.admin td:first-child {
-		font-weight: bold;
+	tr {
+		td {
+			&:first-child {
+				border-radius: 5px 0 0 5px;
+			}
+			&:last-child {
+				border-radius: 0 5px 5px 0;
+			}
+		}
+
+		&:hover {
+			background: #EEE;
+		}
+
+		&.admin td:first-child {
+			font-weight: bold;
+		}
 	}
 
 	td {
@@ -230,6 +237,10 @@ a[href$='.doc'] {
 	a {
 		color: $tm-blue;
 		text-decoration: none;
+
+		&:hover {
+			color: #555;
+		}
 	}
 }
 

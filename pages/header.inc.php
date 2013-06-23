@@ -23,12 +23,9 @@
 <body>
 
 <header id="main-header">
-	<img id="head-logo" src="/img/ToastmastersLogo.png" alt="Toastmasters International logo">
+	<a href="./"><img id="head-logo" src="/img/ToastmastersLogo.png" alt="Toastmasters International logo"></a>
 
-	<div id="header-info">
-		<h1>Toastmasters Materials</h2>
-		<!-- <p>This page aims to collect all digital resources that Toastmasters International provides, and some that club members produced on their own. Clicking any of the files should open or download that file.</p> -->
-	</div>
+	<h1>Toastmasters Materials</h1>
 
 	<nav id="main-menu">
 		<ul>
