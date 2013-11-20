@@ -15,14 +15,17 @@ include APPLICATION_PATH . '/pages/header.inc.php';
 	</thead>
 	<tbody>
 <?php foreach ($guardian->getList() as $id => $user): ?>
-		<tr <?php if (is_admin()) echo 'data-id="<?php echo $id ?>"' ?> <?php if (is_admin() && !empty($user->admin) && $user->admin) echo 'class="admin"' ?>>
+		<tr <?php if (is_admin()) echo "data-id=\"$id\"" ?> <?php if (is_admin() && !empty($user->admin) && $user->admin) echo 'class="admin"' ?>>
 			<td><?php if (is_admin()) echo '<a href="http://' . $_SERVER['HTTP_HOST'] . '/' . $id . '">' ?>
 				<?php echo $user->name ?>
 			<?php if (is_admin()) echo '</a>' ?></td>
 			<td><a href="mailto:<?php echo $user->email ?>"><?php echo $user->email ?></a></td>
 			<td><a href="callto:<?php echo $user->phone ?>"><?php echo $user->phone ?></a></td>
 <?php if (is_admin()): ?>
-			<td><a href="#" title="Delete" data-action="delete">d</a></td>
+			<td>
+				<a href="#" title="Edit" data-action="edit">e</a>
+				<a href="#" title="Delete" data-action="delete">d</a>
+			</td>
 <?php endif; ?>
 		</tr>
 <?php endforeach; ?>
@@ -30,7 +33,7 @@ include APPLICATION_PATH . '/pages/header.inc.php';
 </table>
 
 <?php if (is_admin()): ?>
-<form id="user-add-form" action=".">
+<form id="user-submit-form" action=".">
 	<ul>
 		<li>
 			<label for="user-name">Name</label>
@@ -49,7 +52,7 @@ include APPLICATION_PATH . '/pages/header.inc.php';
 			<input type="checkbox" id="user-admin" name="admin">
 		</li>
 		<li>
-			<button type="submit">Add</button>
+			<button type="submit" id="user-submit">Add</button>
 		</li>
 	</ul>
 </form>

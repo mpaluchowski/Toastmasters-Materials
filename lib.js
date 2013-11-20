@@ -10,23 +10,24 @@ toastmasters.admin = function() {
 
 	initBinders = function() {
 		$('a[data-action=delete]').click(deleteUser);
+		$('a[data-action=edit]').click(editUser);
 
 		$('form').submit(function() { return false; });
-		$('#user-add-form button[type=submit]').click(addUser);
+		$('#user-submit-form button[type=submit]').click(submitUser);
 	},
 
-	addUser = function(e) {
+	submitUser = function(e) {
 		e.preventDefault();
 
 		var form = $(this).parents("form:first");
 
 		$.post(
 			_requestBase,
-			$(form).serialize() + '&op=add',
+			$(form).serialize() + '&op=save',
 			function(data) {
 				location.reload();
 			});
-	}
+	},
 
 	deleteUser = function(e) {
 		e.preventDefault();
@@ -43,6 +44,33 @@ toastmasters.admin = function() {
 				$(userRow).fadeOut(200, function() {
 					$(this).remove();
 				});
+			}
+			);
+	},
+
+	editUser = function(e) {
+		e.preventDefault();
+		var userRow = $(this).parents("tr:first");
+		var id = userRow.attr("data-id");
+
+		$.post(
+			_requestBase,
+			{
+				op : 'edit',
+				id : id
+			},
+			function(data) {
+				var user = $.parseJSON(data);
+				$('#user-name').val(user.name);
+				$('#user-email').val(user.email);
+				$('#user-phone').val(user.phone);
+				$('#user-admin').prop('checked', user.admin !== undefined && user.admin);
+
+				if ($('#user-id').length === 0)
+					$('<input type="hidden" name="id" id="user-id">').appendTo($('#user-submit-form'));
+				$('#user-id').val(user.id);
+
+				$('#user-submit').html('Save');
 			}
 			);
 	}

@@ -9,13 +9,28 @@ switch ($_POST['op']) {
 	case 'remove':
 		$guardian->removeUser($_POST['id']);
 		break;
-	case 'add':
-		$guardian->addUser(
-			$_POST['name'],
-			$_POST['email'],
-			$_POST['phone'],
-			$_POST['admin'] == 'on'
-			);
+	case 'save':
+		if (isset($_POST['id'])) {
+			$guardian->updateUser(
+				$_POST['id'],
+				$_POST['name'],
+				$_POST['email'],
+				$_POST['phone'],
+				$_POST['admin'] == 'on'
+				);
+		} else {
+			$guardian->addUser(
+				$_POST['name'],
+				$_POST['email'],
+				$_POST['phone'],
+				$_POST['admin'] == 'on'
+				);
+		}
+		break;
+	case 'edit':
+		$user = $guardian->getUser($_POST['id']);
+		$user->id = $_POST['id'];
+		echo json_encode($user);
 		break;
 }
 ?>

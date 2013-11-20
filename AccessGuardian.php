@@ -35,6 +35,23 @@ class AccessGuardian {
 		return $id;
 	}
 
+	public function updateUser($id, $name, $email, $phone, $admin = false) {
+		$people = $this->readFile();
+
+		if (!array_key_exists($id, $people))
+			throw new Exception("Person id: " . $id . " couldn't be found.");
+
+		$user = new stdClass;
+		$user->name = trim($name);
+		$user->email = trim($email);
+		$user->phone = trim($phone);
+		$user->admin = $admin;
+
+		$people[$id] = $user;
+		uasort($people, ["AccessGuardian", "userCompare"]);
+		$this->writeFile($people);
+	}
+
 	public function removeUser($id) {
 		$people = $this->readFile();
 
