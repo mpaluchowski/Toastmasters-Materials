@@ -24,4 +24,6 @@ All materials are stored in subfolders of the /data/ folder. To add new material
 
 The list of files is cached for performance reasons. To reset the cache, enter the application (with your unique URL), adding the query string parameter `reset=true`, ie:
 
-```http://example.org/123456/?reset=true```
+```
+http://example.org/123456/?reset=true
+```
