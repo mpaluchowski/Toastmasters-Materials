@@ -138,8 +138,15 @@ ul.item-list {
 		border-radius: 5px;
 		display: inline-block;
 		overflow: hidden;
-		width: 33%;
 		vertical-align: top;
+
+		@media #{$responsive-desktop} {
+			width: 33%;
+		}
+
+		@media #{$responsive-tablet} {
+			width: 50%;
+		}
 
 		&:hover {
 			background: #EEE;
