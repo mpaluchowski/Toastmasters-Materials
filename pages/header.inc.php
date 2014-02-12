@@ -25,6 +25,7 @@
 <header id="main-header">
 	<a href="./"><img id="head-logo" src="/img/ToastmastersLogo.png" alt="Toastmasters International logo"></a>
 
+	<div id="welcome-msg">Welcome, <?php echo $currentUser->name ?> to</div>
 	<h1>Toastmasters Materials</h1>
 
 	<nav id="main-menu">
