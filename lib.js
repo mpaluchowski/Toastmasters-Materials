@@ -11,6 +11,7 @@ toastmasters.admin = function() {
 	initBinders = function() {
 		$('a[data-action=delete]').click(deleteUser);
 		$('a[data-action=edit]').click(editUser);
+		$('a[data-action=email]').click(showEmail);
 
 		$('form').submit(function() { return false; });
 		$('#user-submit-form button[type=submit]').click(submitUser);
@@ -73,6 +74,21 @@ toastmasters.admin = function() {
 				$('#user-submit').html('Save');
 			}
 			);
+	},
+
+	showEmail = function(e) {
+		e.preventDefault();
+		var userRow = $(this).parents("tr:first");
+		var userName = $('.name', userRow).html();
+		var userUrl = window.location.protocol + "//" + window.location.host + "/" + userRow.attr("data-id");
+
+		$('#user-new-email-name-full').html(userName);
+		$('#user-new-email-name-first').html(userName.split(' ')[0]);
+		$('#user-new-email-link').html(userUrl);
+		$('#user-new-email').show();
+		$('html, body').animate({
+			scrollTop: $("#user-new-email").offset().top
+		}, 1000);
 	}
 
 	return {

@@ -272,19 +272,29 @@ a[href$='.doc'] {
 }
 
 #user-new-email {
+	display: none;
 	margin: 3em;
+	overflow: auto;
+	position: relative;
 
 	h2 {
 		background: $tm-yellow;
 		font-size: 1.3em;
 		font-weight: bold;
+		margin-bottom: 15px;
 		padding: .4em .6em;
 	}
 
 	p {
 		font-size: 1.3em;
 		line-height: 150%;
-		margin: .6em 0;
+		margin: 0 0 .6em 80px;
+
+		&.label {
+			left: -80px;
+			position: absolute;
+			width: 80px;
+		}
 
 		strong {
 			font-weight: bold;
