@@ -19,9 +19,6 @@ class AccessGuardian {
 
 		$people = $this->readFile();
 
-		// if ($key = array_search($name, $people))
-		// 	unset($people[$key]);
-
 		$user = new stdClass;
 		$user->name = trim($name);
 		$user->email = trim($email);
