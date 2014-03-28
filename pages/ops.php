@@ -35,4 +35,3 @@ switch ($_POST['op']) {
 		echo json_encode($user);
 		break;
 }
-?>
