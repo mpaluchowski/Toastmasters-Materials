@@ -16,15 +16,17 @@ switch ($_POST['op']) {
 				$_POST['name'],
 				$_POST['email'],
 				$_POST['phone'],
-				$_POST['admin'] == 'on'
+				isset($_POST['admin']) && $_POST['admin'] === 'on'
 				);
+			echo json_encode($_POST['id']);
 		} else {
-			$guardian->addUser(
+			$id = $guardian->addUser(
 				$_POST['name'],
 				$_POST['email'],
 				$_POST['phone'],
-				$_POST['admin'] == 'on'
+				isset($_POST['admin']) && $_POST['admin'] === 'on'
 				);
+			echo json_encode($id);
 		}
 		break;
 	case 'edit':
