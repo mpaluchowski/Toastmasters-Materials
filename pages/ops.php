@@ -12,18 +12,18 @@ switch ($_POST['op']) {
 	case 'save':
 		if (isset($_POST['id'])) {
 			$guardian->updateUser(
-				$_POST['id'],
-				$_POST['name'],
-				$_POST['email'],
-				$_POST['phone'],
+				htmlspecialchars( $_POST['id'] ),
+				htmlspecialchars( $_POST['name'] ),
+				htmlspecialchars( $_POST['email'] ),
+				htmlspecialchars( $_POST['phone'] ),
 				isset($_POST['admin']) && $_POST['admin'] === 'on'
 				);
 			echo json_encode($_POST['id']);
 		} else {
 			$id = $guardian->addUser(
-				$_POST['name'],
-				$_POST['email'],
-				$_POST['phone'],
+				htmlspecialchars( $_POST['name'] ),
+				htmlspecialchars( $_POST['email'] ),
+				htmlspecialchars( $_POST['phone'] ),
 				isset($_POST['admin']) && $_POST['admin'] === 'on'
 				);
 			echo json_encode($id);
