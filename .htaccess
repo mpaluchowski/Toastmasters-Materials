@@ -1,5 +1,8 @@
 RewriteEngine On
 
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
 RewriteRule ^([a-zA-Z0-9\.]{23})/data/(.*)$ media.php?checkId=$1&mediaPath=$2 [L]
 RewriteRule ^([a-zA-Z0-9\.]{23})/?(.*)? index.php?checkId=$1&page=$2 [L,QSA]
 
