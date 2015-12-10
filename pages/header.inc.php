@@ -1,6 +1,6 @@
 <html lang="en">
 <head>
-	<base href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/<?php echo $_GET['checkId'] ?>/">
+	<base href="//<?php echo $_SERVER['HTTP_HOST'] ?>/<?php echo $_GET['checkId'] ?>/">
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
