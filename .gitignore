@@ -1,6 +1,12 @@
-*.css
-*.sublime-project
+### SublimeText ###
 *.sublime-workspace
+*.sublime-project
+
+### SASS ###
 .sass-cache
+*.css
+*.css.map
+
+### Website ###
 data/*
 !data/.htaccess
